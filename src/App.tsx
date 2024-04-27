@@ -1,5 +1,49 @@
+import SideBar from "./components/SideBar";
+import Button from "./components/Button";
+import ButtonLightGray from "./components/ButtonLightGray";
+import TopCard from "./components/TopCard";
+import ProfileCard from "./components/ProfileCard";
+import { Icons } from "./components/Icons";
+
 function App() {
-  return <p className="text-green-500">dgffdgfd</p>;
+  const Arrow = Icons["chevronLeft"];
+  return (
+    <div className="bg-[#F9FAFB]   flex flex-row w-screen h-screen">
+      <SideBar />
+      <div className="w-full">
+        <p className="p-3 bg-white text-gray-600 font-bold ">
+          Real-Time Production
+        </p>
+        <div className="px-3 py-4 flex flex-col items-start justify-center">
+          <div className="flex justify-start items-center gap-2">
+            <Button>
+              <div className="flex items-center gap-1">
+                SJA <Arrow size={10} className="-rotate-90" />
+              </div>
+            </Button>
+            <Button>
+              <div className="flex items-center gap-1">
+                A-1 <Arrow size={10} className="-rotate-90" />
+              </div>
+            </Button>
+            <span className="text-[#E6E7E9]">|</span>
+            <ButtonLightGray>WL02Y018-RE2-001</ButtonLightGray>
+          </div>
+
+          <div className="pt-3 flex justify-between  w-full ">
+            <TopCard title="Target" num={600} type="pcs" />
+            <TopCard title="Output" num={495} type="pcs" />
+            <TopCard title="Differance" num={-105} type="pcs" />
+            <TopCard title="Prediction" num={85} type="%" />
+          </div>
+          {/* top chart */}
+          <div className="bg-white mt-3 rounded-md p-3 w-full">
+            <ProfileCard />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;

@@ -1,0 +1,23 @@
+// 참고사항
+
+// 1. newSMV : 하단 차트의 가로 빨간선 값 (피그마상 18s)
+// 2. loss ~ output : 프로필사진 우측의 4개 데이터 섹션
+// 3. best, worst : 파이차트 2개 데이터
+
+{
+  "processAnalysis": {
+    "newSMV": 18,
+    "loss": 9.22,
+    "productive": 0.725,
+    "efficiency": 0.678,
+    "output": 4,
+    "best": {
+      "sewingTime": 3570,
+      "otherTime": 3312
+    },
+    "worst": {
+      "sewingTime": 23570,
+      "otherTime": 22312
+    }
+  }
+}

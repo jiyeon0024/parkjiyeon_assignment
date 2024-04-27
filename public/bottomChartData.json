@@ -1,0 +1,108 @@
+// 참고사항
+
+// 1. y축 : 작업시간 - sewingTime + otherTime
+// 2. x축 : createdAt 시간 -> 고정 간격 1초로 작성됨
+// 3. x축 범위 : 07시 10분 ~ 07시 30분으로 하드 코딩
+
+// hover시 나타나는 모달 -> 차트는 그리지 말아주세요.
+
+{
+  "clickList": [
+    {
+      "_id": "662b5361cea77bd7a1b2ccc1",
+      "sewingTime": 23570,
+      "otherTime": 22312,
+      "createdAt": "2024-04-26T07:10:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc2",
+      "sewingTime": 16570,
+      "otherTime": 24312,
+      "createdAt": "2024-04-26T07:11:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc3",
+      "sewingTime": 12570,
+      "otherTime": 9312,
+      "createdAt": "2024-04-26T07:12:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc4",
+      "sewingTime": 5570,
+      "otherTime": 8312,
+      "createdAt": "2024-04-26T07:13:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc5",
+      "sewingTime": 6570,
+      "otherTime": 9312,
+      "createdAt": "2024-04-26T07:14:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc6",
+      "sewingTime": 7570,
+      "otherTime": 7312,
+      "createdAt": "2024-04-26T07:15:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc7",
+      "sewingTime": 7570,
+      "otherTime": 6312,
+      "createdAt": "2024-04-26T07:16:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc8",
+      "sewingTime": 8570,
+      "otherTime": 3312,
+      "createdAt": "2024-04-26T07:17:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc9",
+      "sewingTime": 8570,
+      "otherTime": 1312,
+      "createdAt": "2024-04-26T07:18:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc10",
+      "sewingTime": 7570,
+      "otherTime": 2312,
+      "createdAt": "2024-04-26T07:19:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc11",
+      "sewingTime": 5570,
+      "otherTime": 9312,
+      "createdAt": "2024-04-26T07:20:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc12",
+      "sewingTime": 8570,
+      "otherTime": 10312,
+      "createdAt": "2024-04-26T07:21:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc13",
+      "sewingTime": 8570,
+      "otherTime": 9312,
+      "createdAt": "2024-04-26T07:22:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc14",
+      "sewingTime": 6570,
+      "otherTime": 2312,
+      "createdAt": "2024-04-26T07:23:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc15",
+      "sewingTime": 3570,
+      "otherTime": 3312,
+      "createdAt": "2024-04-26T07:24:25.990Z"
+    },
+    {
+      "_id": "662b5361cea77bd7a1b2ccc16",
+      "sewingTime": 6570,
+      "otherTime": 9312,
+      "createdAt": "2024-04-26T07:25:25.990Z"
+    }
+  ]
+}

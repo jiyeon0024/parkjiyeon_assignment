@@ -1,0 +1,83 @@
+// 참고사항
+
+// 1. process Name 순으로 x축 배치
+// 2. output : 차트 하단 값 (주황색 or 회색)
+// 3. expectedOutput : 차트 상단의 연보라색 + 점선 값
+
+// 합산이 아닌, expectedOutput 이 y축 최대 값 입니다.
+// ex. output 8, expectOutput 15 인 경우 ->  세로 길이는 15 입니다. 8만큼 겹쳐 보여지면 됩니다.
+
+{
+  "processList": [
+    {
+      "processName": "process1",
+      "output": 8,
+      "expectOutput": 15
+    },
+    {
+      "processName": "process2",
+      "output": 9,
+      "expectOutput": 12
+    },
+    {
+      "processName": "process3",
+      "output": 9,
+      "expectOutput": 18
+    },
+    {
+      "processName": "process4",
+      "output": 11,
+      "expectOutput": 22
+    },
+    {
+      "processName": "process5",
+      "output": 7,
+      "expectOutput": 12
+    },
+    {
+      "processName": "process6",
+      "output": 12,
+      "expectOutput": 17
+    },
+    {
+      "processName": "process7",
+      "output": 4,
+      "expectOutput": 10
+    },
+    {
+      "processName": "process8",
+      "output": 13,
+      "expectOutput": 18
+    },
+    {
+      "processName": "process9",
+      "output": 17,
+      "expectOutput": 22
+    },
+    {
+      "processName": "process10",
+      "output": 11,
+      "expectOutput": 20
+    },
+    {
+      "processName": "process11",
+      "output": 5,
+      "expectOutput": 13
+    },
+    {
+      "processName": "process12",
+      "output": 9,
+      "expectOutput": 14
+    },
+    {
+      "processName": "process13",
+      "output": 6,
+      "expectOutput": 15
+    },
+    {
+      "processName": "process14",
+      "output": 4,
+      "expectOutput": 10
+    }
+  ]
+}
