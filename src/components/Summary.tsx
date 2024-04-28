@@ -6,7 +6,7 @@ type Props = {
     output: number;
     efficiency: number;
     loss: number;
-    productive: string;
+    productive: number;
   };
 };
 
