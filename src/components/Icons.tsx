@@ -6,6 +6,9 @@ import {
   Bell,
   LogOut,
   BarChart4,
+  Shirt,
+  CircleMinus,
+  Activity,
 } from "lucide-react";
 
 export const Icons = {
@@ -16,4 +19,7 @@ export const Icons = {
   logOut: LogOut,
   barChart4: BarChart4,
   bell: Bell,
+  shirt: Shirt,
+  circleMinus: CircleMinus,
+  activity: Activity,
 };

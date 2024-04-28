@@ -10,7 +10,7 @@ const SideBar = (props: Props) => {
   const Sparkle = Icons["sparkle"];
   const BarChart4 = Icons["barChart4"];
   return (
-    <div className="bg-[#2E2E2E] text-white p-3 flex flex-col justify-between items-start h-[80%]  ">
+    <div className="bg-[#2E2E2E] text-white p-3 flex flex-col justify-between items-start   h-[800px] ">
       <div>
         <div className="flex justify-end items-center pb-2 ">
           <ArrowLeftToLine size={12} color="white" />

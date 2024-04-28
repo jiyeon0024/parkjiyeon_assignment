@@ -4,17 +4,21 @@ import ButtonLightGray from "./components/ButtonLightGray";
 import TopCard from "./components/TopCard";
 import ProfileCard from "./components/ProfileCard";
 import { Icons } from "./components/Icons";
+import TopChart from "./components/TopChart";
+import Summary from "./components/Summary";
+import BottomChart from "./components/BottomChart";
 
 function App() {
   const Arrow = Icons["chevronLeft"];
   return (
-    <div className="bg-[#F9FAFB]   flex flex-row w-screen h-screen">
+    <div className="bg-[#F9FAFB]   flex flex-row w-screen  ">
       <SideBar />
-      <div className="w-full">
-        <p className="p-3 bg-white text-gray-600 font-bold ">
+
+      <div className=" w-full">
+        <p className="p-3 bg-white text-gray-600 font-bold  border-b border-[#DEDFDF]">
           Real-Time Production
         </p>
-        <div className="px-3 py-4 flex flex-col items-start justify-center">
+        <div className="px-3 py-4 flex flex-col items-start justify-center ">
           <div className="flex justify-start items-center gap-2">
             <Button>
               <div className="flex items-center gap-1">
@@ -36,9 +40,9 @@ function App() {
             <TopCard title="Differance" num={-105} type="pcs" />
             <TopCard title="Prediction" num={85} type="%" />
           </div>
-          {/* top chart */}
-          <div className="bg-white mt-3 rounded-md p-3 w-full">
-            <ProfileCard />
+          <TopChart />
+          <div className="bg-white mt-3 rounded-md p-3  border border-[#DEDFDF]">
+            <BottomChart />
           </div>
         </div>
       </div>
