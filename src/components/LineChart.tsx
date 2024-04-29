@@ -55,6 +55,7 @@ export const CustomTooltip = (props: any) => {
           fill="white"
           rx="5"
         />
+
         <text
           fontWeight={700}
           fontSize={9}
@@ -69,41 +70,52 @@ export const CustomTooltip = (props: any) => {
           </tspan>
         </text>
         <text
+          x={tooltipX + 10}
+          y={tooltipY + 25}
+          fill={colors.gray[600]}
+          dominantBaseline="middle"
+          fontSize={10}
+        >
+          --Chart Area------
+        </text>
+
+        <text
           fontSize={9}
           x={tooltipX + 10}
-          y={tooltipY + 27}
+          y={tooltipY + 40}
           fill={colors.gray[600]}
           dominantBaseline="middle"
           fontWeight={500}
         >
-          Cycle Time:{" "}
+          Cycle Time
           <tspan
             x={tooltipX + 10 + spaceWidth}
-            y={tooltipY + 30}
+            y={tooltipY + 40}
             fontWeight={300}
           >
             {Math.round((datum.sewingTime + datum.otherTime) / 1000)}sec
           </tspan>
         </text>
+
         <rect
           width={6}
           height={6}
           fill={colors.purple[500]}
           x={tooltipX + 5}
-          y={tooltipY + 50 - 3}
+          y={tooltipY + 52}
           rx="2"
         />
         <text
           fontSize={9}
           x={tooltipX + 15}
-          y={tooltipY + 50}
+          y={tooltipY + 55}
           fill={colors.gray[600]}
           dominantBaseline="middle"
         >
           Sewing Time:{" "}
           <tspan
             x={tooltipX + 10 + spaceWidth}
-            y={tooltipY + 50}
+            y={tooltipY + 56}
             fontWeight={300}
           >
             {Math.round(datum.sewingTime / 1000)}sec
@@ -114,7 +126,7 @@ export const CustomTooltip = (props: any) => {
           height={6}
           fill={colors.gray[300]}
           x={tooltipX + 5}
-          y={tooltipY + 70 - 3}
+          y={tooltipY + 66}
           rx="2"
         />
         <text
