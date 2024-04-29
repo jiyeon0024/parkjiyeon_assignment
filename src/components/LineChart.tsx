@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-// import { DateTime } from "luxon";
-import { BottomChartData } from "../@type/data.types";
+import { DateTime } from "luxon";
+import colors from "tailwindcss/colors";
 
 import {
   VictoryChart,
   VictoryLine,
   VictoryAxis,
-  VictoryScatter,
   VictoryLabel,
-  VictoryBrushContainer,
-  VictoryTooltip,
   VictoryVoronoiContainer,
 } from "victory";
 // type Props = { data: BottomChartData };
@@ -18,13 +15,118 @@ import {
 //   return DateTime?.fromISO(time, { zone: "Asia/Seoul" })?.toFormat("t");
 // }
 
-export const CustomTooltip = (props) => {
+export const CustomTooltip = (props: any) => {
+  const { x, y, datum, width, padding } = props;
+
+  console.log(datum);
+
+  const tooltipWidth = 230;
+  const tooltipHeight = 75;
+  const tooltipPadding = 10;
+
+  const spaceWidth = 150;
+
+  let tooltipX = x - tooltipWidth / 2;
+  let tooltipY = y - tooltipHeight - tooltipPadding;
+
+  if (tooltipX < padding) {
+    tooltipX = padding;
+  } else if (tooltipX + tooltipWidth > width - padding) {
+    tooltipX = width - tooltipWidth - padding;
+  }
+
+  if (tooltipY < padding) {
+    tooltipY = y + tooltipPadding;
+  }
+
   return (
-    <g>
-      <text cx={props.x} cy={props.y}>
-        hello
-      </text>
-    </g>
+    <>
+      <defs>
+        <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow
+            dx="2"
+            dy="2"
+            stdDeviation="2"
+            flood-color="black"
+            flood-opacity="0.5"
+          />
+        </filter>
+      </defs>
+
+      <g filter="url(#drop-shadow)">
+        {/* Background box */}
+        <rect
+          x={tooltipX}
+          y={tooltipY}
+          width={tooltipWidth}
+          height={tooltipHeight}
+          fill="white"
+          rx={5}
+        />
+        <text
+          fontSize={9}
+          x={tooltipX + 10}
+          y={tooltipY + 10}
+          fill={colors.gray[600]}
+          dominantBaseline="middle"
+        >
+          Now
+          <tspan x={tooltipX + 10 + spaceWidth} y={tooltipY + 10}>
+            {DateTime?.fromISO(datum.createdAt, {})?.toFormat("HH:mm:ss")}
+          </tspan>
+        </text>
+        <text
+          fontSize={11}
+          x={tooltipX + 10}
+          y={tooltipY + 30}
+          fill={colors.gray[600]}
+          dominantBaseline="middle"
+        >
+          Cycle Time:{" "}
+          <tspan x={tooltipX + 10 + spaceWidth} y={tooltipY + 30}>
+            {Math.round((datum.sewingTime + datum.otherTime) / 1000)}sec
+          </tspan>
+        </text>
+        <rect
+          width={6}
+          height={6}
+          fill={colors.purple[500]}
+          x={tooltipX + 5}
+          y={tooltipY + 50 - 3}
+        />
+        <text
+          fontSize={9}
+          x={tooltipX + 15}
+          y={tooltipY + 50}
+          fill={colors.gray[600]}
+          dominantBaseline="middle"
+        >
+          Sewing Time:{" "}
+          <tspan x={tooltipX + 10 + spaceWidth} y={tooltipY + 50}>
+            {Math.round(datum.sewingTime / 1000)}sec
+          </tspan>
+        </text>
+        <rect
+          width={6}
+          height={6}
+          fill={colors.gray[300]}
+          x={tooltipX + 5}
+          y={tooltipY + 70 - 3}
+        />
+        <text
+          fontSize={9}
+          x={tooltipX + 15}
+          y={tooltipY + 70}
+          fill={colors.gray[600]}
+          dominantBaseline="middle"
+        >
+          Other Time:
+          <tspan x={tooltipX + 10 + spaceWidth} y={tooltipY + 70}>
+            {Math.round(datum.otherTime / 1000)}sec
+          </tspan>
+        </text>
+      </g>
+    </>
   );
 };
 
@@ -37,11 +139,12 @@ const LineChart = () => {
       .then((val) => setVal(val.clickList));
   }, []);
 
-  //   const lineData = data.clickList;
-
   if (val) {
     return (
       <div className=" relative border border-[#DEDFDF] rounded-md p-3 text-xs flex   justify-center items-center gap-3 h-[400px]  ">
+        <div className="  absolute top-[49%] text-[10px]  left-[50px] bg-[#F6595926]/15 text-[#F65959] p-1 rounded-lg">
+          18s
+        </div>
         <div className="absolute right-10 top-10">
           <ul className="flex justify-center items-center gap-3">
             <div className="flex items-center gap-1 text-xs">
@@ -79,10 +182,7 @@ const LineChart = () => {
             <VictoryVoronoiContainer
               labels={({ datum }) => `${datum.sewingTime}, ${datum.otherTime}`}
               labelComponent={
-                <VictoryTooltip
-                  flyoutComponent={<CustomTooltip />}
-                  // center={{ x: 225, y }}
-                />
+                <CustomTooltip height={250} width={1000} padding={20} />
               }
             />
           }

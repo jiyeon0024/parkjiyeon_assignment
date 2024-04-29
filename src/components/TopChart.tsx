@@ -24,7 +24,7 @@ const TopChart = (props: Props) => {
 
   //   console.log(data);
   return (
-    <div className="bg-white  mt-3 w-full p-3 rounded-md border border-[#DEDFDF]">
+    <div className="bg-white  mt-3 p-3 rounded-md border border-[#DEDFDF] w-full  ">
       <div className="flex justify-end items-center gap-10">
         <div className="flex items-center gap-1 text-xs">
           <span className="text-[#F65959] font-bold">-</span> <p>Target SMV</p>
@@ -35,23 +35,7 @@ const TopChart = (props: Props) => {
         </div>
       </div>
       <div className="h-[500px] ">
-        <VictoryChart domainPadding={3} height={250} width={700}>
-          {/* <VictoryScatter
-            labels={() => ["(pcs)"]}
-            data={[{ x: 0, y: 0 }]}
-            labelComponent={
-              <VictoryLabel
-                dy={-150}
-                dx={35}
-                style={{
-                  fontSize: 5,
-                  padding: 5,
-                  fill: "gray",
-                }}
-                textAnchor="start"
-              />
-            }
-          /> */}
+        <VictoryChart domainPadding={3} height={230} width={800}>
           <VictoryLabel
             x={30}
             y={35}

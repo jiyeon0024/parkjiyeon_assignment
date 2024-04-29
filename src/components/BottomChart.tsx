@@ -4,6 +4,7 @@ import Summary from "./Summary";
 import PieChart from "./PieChart";
 import LineChart from "./LineChart";
 import { BottomChartData } from "../@type/data.types";
+import PieChartRight from "./PieChartRight";
 
 const BottomChart = () => {
   const [data, setData] = useState<BottomChartData>();
@@ -16,11 +17,11 @@ const BottomChart = () => {
   if (data) {
     return (
       <div className="">
-        <div className="flex gap-10  mb-3  ">
+        <div className="flex gap-3 justify-between mb-3 w-full ">
           <ProfileCard />
           <Summary data={data} />
           <PieChart data={data} />
-          <PieChart data={data} />
+          <PieChartRight data={data} />
         </div>
         <LineChart />
       </div>

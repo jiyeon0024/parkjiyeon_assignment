@@ -6,9 +6,9 @@ const ProfileCard = (props: Props) => {
   const ChevronRight = Icons["chevronRight"];
   const ChevronLeft = Icons["chevronLeft"];
   return (
-    <div className="w-[560px]  rounded-md border  border-[#E6E7E9] p-3 flex justify-center items-center gap-6  ">
+    <div className=" rounded-md border  border-[#E6E7E9] px-2 py-3 flex justify-center items-center gap-6  ">
       <ChevronLeft size={20} color="gray" />
-      <div className="flex justify-between items-center w-full">
+      <div className="flex justify-between items-center w-full gap-20 ">
         <div>
           <span className="text-xs text-gray-600 bg-[#F1F1F1] p-1 rounded-md">
             #38

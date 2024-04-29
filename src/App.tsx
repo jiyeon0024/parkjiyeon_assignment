@@ -11,10 +11,10 @@ import BottomChart from "./components/BottomChart";
 function App() {
   const Arrow = Icons["chevronLeft"];
   return (
-    <div className="bg-[#F9FAFB]   flex flex-row w-screen  ">
+    <div className="bg-[#F9FAFB]   flex flex-row  w-screen   h-full">
       <SideBar />
 
-      <div className=" w-full">
+      <div className=" ">
         <p className="p-3 bg-white text-gray-600 font-bold  border-b border-[#DEDFDF]">
           Real-Time Production
         </p>
@@ -34,14 +34,14 @@ function App() {
             <IndexLightGray>WL02Y018-RE2-001</IndexLightGray>
           </div>
 
-          <div className="pt-3 flex justify-between  w-full ">
+          <div className="pt-3 flex justify-between  w-full  gap-3 ">
             <TopCard title="Target" num={600} type="pcs" />
             <TopCard title="Output" num={495} type="pcs" />
             <TopCard title="Difference" num={-105} type="pcs" />
             <TopCard title="Prediction" num={85} type="%" />
           </div>
           <TopChart />
-          <div className="bg-white mt-3 rounded-md p-3  border border-[#DEDFDF] w-full">
+          <div className="bg-white mt-3 rounded-md p-3  border border-[#DEDFDF]  ">
             <BottomChart />
           </div>
         </div>
