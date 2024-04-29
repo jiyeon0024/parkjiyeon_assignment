@@ -37,7 +37,7 @@ function App() {
           <div className="pt-3 flex justify-between  w-full ">
             <TopCard title="Target" num={600} type="pcs" />
             <TopCard title="Output" num={495} type="pcs" />
-            <TopCard title="Differance" num={-105} type="pcs" />
+            <TopCard title="Difference" num={-105} type="pcs" />
             <TopCard title="Prediction" num={85} type="%" />
           </div>
           <TopChart />
