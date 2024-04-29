@@ -16,7 +16,7 @@ const BottomChart = () => {
   }, []);
   if (data) {
     return (
-      <div className="">
+      <div className="w-full">
         <div className="flex gap-3 justify-between mb-3 w-full ">
           <ProfileCard />
           <Summary data={data} />

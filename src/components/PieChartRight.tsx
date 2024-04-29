@@ -7,14 +7,23 @@ type Props = { data: BottomChartData };
 const PieChartRight = ({ data }: Props) => {
   console.log(data, "sfsd");
   return (
-    <div className="border border-[#DEDFDF] rounded-md p-3 text-xs flex  justify-center items-center gap-3 w-[300px]">
-      <div className="">
+    <div className="relative border border-[#DEDFDF] rounded-md p-3 text-xs flex  justify-center items-center gap-6 w-[300px]">
+      <div className="absolute top-18 left-[53px] font-bold ">
+        {Math.round(
+          (data.processAnalysis.worst.sewingTime /
+            (data.processAnalysis.worst.sewingTime +
+              data.processAnalysis.worst.otherTime)) *
+            100
+        )}
+        %
+      </div>
+      <div className="w-[100px]">
         <VictoryLabel style={{ fontSize: 10 }} dx={-500} dy={10} />
 
         <VictoryPie
           colorScale={["#F65959", "#DEDFDF"]}
           cornerRadius={10}
-          //   width={530}
+          width={400}
           //   height={150}
           padAngle={() => 2}
           innerRadius={80}

@@ -39,26 +39,26 @@ const TopChart = (props: Props) => {
           <VictoryLabel
             x={30}
             y={35}
-            style={{ fontSize: "10px", fill: "gray" }}
+            style={{ fontSize: "8px", fill: "#8C8F94" }}
             text={"(pcs)"}
           />
           <VictoryAxis
             style={{
-              tickLabels: { fontSize: 5, padding: 5, fill: "gray" },
+              tickLabels: { fontSize: 8, padding: 5, fill: "#8C8F94" },
             }}
           />
           <VictoryAxis
             dependentAxis
             style={{
               tickLabels: {
-                fontSize: 5,
+                fontSize: 8,
                 padding: 5,
-                fill: "gray",
+                fill: "#8C8F94",
               },
               axisLabel: {
                 angle: -360,
-                fontSize: 5,
-                fill: "gray",
+                fontSize: 8,
+                fill: "#8C8F94",
               },
             }}
           />
@@ -100,7 +100,7 @@ const TopChart = (props: Props) => {
             y="output"
             style={{
               data: {
-                fill: ({ index }) => (index === 7 ? "#FF9B3F" : "#dadbdd"),
+                fill: ({ index }) => (index === 7 ? "#FF9B3F" : "#dadbdde0"),
                 width: 4,
               },
             }}

@@ -20,7 +20,7 @@ export const CustomTooltip = (props: any) => {
 
   console.log(datum);
 
-  const tooltipWidth = 230;
+  const tooltipWidth = 200;
   const tooltipHeight = 75;
   const tooltipPadding = 10;
 
@@ -47,7 +47,7 @@ export const CustomTooltip = (props: any) => {
             dx="2"
             dy="2"
             stdDeviation="2"
-            flood-color="black"
+            flood-color="rgba(0, 0, 0, 0.1)"
             flood-opacity="0.5"
           />
         </filter>
@@ -61,9 +61,10 @@ export const CustomTooltip = (props: any) => {
           width={tooltipWidth}
           height={tooltipHeight}
           fill="white"
-          rx={5}
+          rx="5"
         />
         <text
+          fontWeight={700}
           fontSize={9}
           x={tooltipX + 10}
           y={tooltipY + 10}
@@ -71,19 +72,24 @@ export const CustomTooltip = (props: any) => {
           dominantBaseline="middle"
         >
           Now
-          <tspan x={tooltipX + 10 + spaceWidth} y={tooltipY + 10}>
+          <tspan x={tooltipX + 35} y={tooltipY + 10} fontWeight={300}>
             {DateTime?.fromISO(datum.createdAt, {})?.toFormat("HH:mm:ss")}
           </tspan>
         </text>
         <text
-          fontSize={11}
+          fontSize={9}
           x={tooltipX + 10}
-          y={tooltipY + 30}
+          y={tooltipY + 27}
           fill={colors.gray[600]}
           dominantBaseline="middle"
+          fontWeight={500}
         >
           Cycle Time:{" "}
-          <tspan x={tooltipX + 10 + spaceWidth} y={tooltipY + 30}>
+          <tspan
+            x={tooltipX + 10 + spaceWidth}
+            y={tooltipY + 30}
+            fontWeight={300}
+          >
             {Math.round((datum.sewingTime + datum.otherTime) / 1000)}sec
           </tspan>
         </text>
@@ -93,6 +99,7 @@ export const CustomTooltip = (props: any) => {
           fill={colors.purple[500]}
           x={tooltipX + 5}
           y={tooltipY + 50 - 3}
+          rx="2"
         />
         <text
           fontSize={9}
@@ -102,7 +109,11 @@ export const CustomTooltip = (props: any) => {
           dominantBaseline="middle"
         >
           Sewing Time:{" "}
-          <tspan x={tooltipX + 10 + spaceWidth} y={tooltipY + 50}>
+          <tspan
+            x={tooltipX + 10 + spaceWidth}
+            y={tooltipY + 50}
+            fontWeight={300}
+          >
             {Math.round(datum.sewingTime / 1000)}sec
           </tspan>
         </text>
@@ -112,6 +123,7 @@ export const CustomTooltip = (props: any) => {
           fill={colors.gray[300]}
           x={tooltipX + 5}
           y={tooltipY + 70 - 3}
+          rx="2"
         />
         <text
           fontSize={9}
@@ -121,7 +133,11 @@ export const CustomTooltip = (props: any) => {
           dominantBaseline="middle"
         >
           Other Time:
-          <tspan x={tooltipX + 10 + spaceWidth} y={tooltipY + 70}>
+          <tspan
+            x={tooltipX + 10 + spaceWidth}
+            y={tooltipY + 70}
+            fontWeight={300}
+          >
             {Math.round(datum.otherTime / 1000)}sec
           </tspan>
         </text>
@@ -141,22 +157,22 @@ const LineChart = () => {
 
   if (val) {
     return (
-      <div className=" relative border border-[#DEDFDF] rounded-md p-3 text-xs flex   justify-center items-center gap-3 h-[400px]  ">
+      <div className=" relative  rounded-md p-3 text-xs flex   justify-center items-center gap-3 h-[400px]  ">
         <div className="  absolute top-[49%] text-[10px]  left-[50px] bg-[#F6595926]/15 text-[#F65959] p-1 rounded-lg">
           18s
         </div>
-        <div className="absolute right-10 top-10">
+        <div className="absolute right-[85px] top-10">
           <ul className="flex justify-center items-center gap-3">
             <div className="flex items-center gap-1 text-xs">
               <span className="text-[#F65959] font-bold">-</span>{" "}
               <p>Target SMV</p>
             </div>
             <div className="flex items-center gap-1 text-xs">
-              <div className="w-2 h-2 rounded-sm  bg-[#4ECAFF]/30 font-bold"></div>{" "}
+              <div className="w-2 h-2 rounded-full  bg-[#4ECAFF]/30 font-bold"></div>{" "}
               <p>Good</p>
             </div>
             <div className="flex items-center gap-1 text-xs">
-              <div className=" w-2 h-2 rounded-sm bg-[#F659594D]/30 font-bold"></div>{" "}
+              <div className=" w-2 h-2 rounded-full bg-[#F659594D]/30 font-bold"></div>{" "}
               <p>Bad</p>
             </div>
           </ul>

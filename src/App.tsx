@@ -41,7 +41,7 @@ function App() {
             <TopCard title="Prediction" num={85} type="%" />
           </div>
           <TopChart />
-          <div className="bg-white mt-3 rounded-md p-3  border border-[#DEDFDF]  ">
+          <div className="bg-white mt-3 rounded-md p-3  border border-[#DEDFDF] w-full ">
             <BottomChart />
           </div>
         </div>
