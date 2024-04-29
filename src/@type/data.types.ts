@@ -14,4 +14,11 @@ export type BottomChartData = {
       otherTime: number;
     };
   };
+
+  clickList: {
+    _id: string;
+    sewingTime: number;
+    otherTime: number;
+    createdAt: string;
+  };
 };

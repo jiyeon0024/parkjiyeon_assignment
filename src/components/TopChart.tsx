@@ -36,7 +36,7 @@ const TopChart = (props: Props) => {
       </div>
       <div className="h-[500px] ">
         <VictoryChart domainPadding={3} height={250} width={700}>
-          <VictoryScatter
+          {/* <VictoryScatter
             labels={() => ["(pcs)"]}
             data={[{ x: 0, y: 0 }]}
             labelComponent={
@@ -51,6 +51,12 @@ const TopChart = (props: Props) => {
                 textAnchor="start"
               />
             }
+          /> */}
+          <VictoryLabel
+            x={30}
+            y={35}
+            style={{ fontSize: "10px", fill: "gray" }}
+            text={"(pcs)"}
           />
           <VictoryAxis
             style={{
@@ -74,7 +80,7 @@ const TopChart = (props: Props) => {
           />
           {/* <VictoryGroup> */}
           <VictoryBar
-            standalone={false}
+            // standalone={false}
             data={data}
             x="processName"
             y="expectOutput"
@@ -104,7 +110,7 @@ const TopChart = (props: Props) => {
             }}
           />
           <VictoryBar
-            standalone={false}
+            // standalone={false}
             data={data}
             x="processName"
             y="output"

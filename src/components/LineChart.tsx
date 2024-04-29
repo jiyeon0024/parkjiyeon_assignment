@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import { DateTime } from "luxon";
+import { BottomChartData } from "../@type/data.types";
 
 import {
   VictoryChart,
@@ -8,25 +9,37 @@ import {
   VictoryScatter,
   VictoryLabel,
   VictoryBrushContainer,
+  VictoryTooltip,
+  VictoryVoronoiContainer,
 } from "victory";
-// type Props = {};
+// type Props = { data: BottomChartData };
 
 // export function formatTime(time: string) {
 //   return DateTime?.fromISO(time, { zone: "Asia/Seoul" })?.toFormat("t");
 // }
 
+export const CustomTooltip = (props) => {
+  return (
+    <g>
+      <text cx={props.x} cy={props.y}>
+        hello
+      </text>
+    </g>
+  );
+};
+
 const LineChart = () => {
-  const [data, setData] = useState([]);
+  const [val, setVal] = useState([]);
 
   useEffect(() => {
     fetch("./bottomChartData.json")
       .then((res) => res.json())
-      .then((val) => setData(val));
+      .then((val) => setVal(val.clickList));
   }, []);
-  console.log(data);
-  const lineData = data.clickList;
 
-  if (data) {
+  //   const lineData = data.clickList;
+
+  if (val) {
     return (
       <div className=" relative border border-[#DEDFDF] rounded-md p-3 text-xs flex   justify-center items-center gap-3 h-[400px]  ">
         <div className="absolute right-10 top-10">
@@ -45,29 +58,45 @@ const LineChart = () => {
             </div>
           </ul>
         </div>
+
+        <svg className="absolute w-full h-full">
+          <defs>
+            <linearGradient id="radial_gradient" gradientTransform="rotate(90)">
+              <stop offset="7%" stopColor="#F6595912" />
+              <stop offset="80%" stopColor="#4ECAFF1A" />
+            </linearGradient>
+          </defs>
+        </svg>
+
         <VictoryChart
-          domainPadding={3}
+          domainPadding={10}
           height={250}
           width={1000}
           style={{
             background: { fill: "url(#radial_gradient)" },
           }}
+          containerComponent={
+            <VictoryVoronoiContainer
+              labels={({ datum }) => `${datum.sewingTime}, ${datum.otherTime}`}
+              labelComponent={
+                <VictoryTooltip
+                  flyoutComponent={<CustomTooltip />}
+                  // center={{ x: 225, y }}
+                />
+              }
+            />
+          }
         >
-          <linearGradient id="radial_gradient" gradientTransform="rotate(90)">
-            <stop offset="7%" stopColor="#F6595912" />
-            <stop offset="80%" stopColor="#4ECAFF1A" />
-          </linearGradient>
           <VictoryLine
-            labels={({ datum }) => datum.y}
             style={{
               data: { stroke: "#5550FF", strokeWidth: 1 },
-              parent: { border: "1px solid #ccc" },
+              //   parent: { border: "1px solid #ccc" },
             }}
             // x="createdAt"
 
             // x={(d) => formatTime(d.createdAt)}
             y={(d) => d.sewingTime + d.otherTime}
-            data={lineData}
+            data={val}
           />
           <VictoryAxis
             //   dependentAxis
@@ -108,14 +137,26 @@ const LineChart = () => {
             ]}
           />
           <VictoryLabel
-            x={0}
+            x={20}
             y={50}
-            style={{ fontSize: "5px" }}
-            text={"SMSMSMS"}
+            style={{ fontSize: "10px", fill: "gray" }}
+            text={"(SMV)"}
+          />
+          <VictoryLabel
+            x={50}
+            y={210}
+            style={{ fontSize: "10px", fill: "gray" }}
+            text={"Start"}
+          />
+          <VictoryLabel
+            x={925}
+            y={210}
+            style={{ fontSize: "10px", fill: "gray" }}
+            text={"Finish"}
           />
           <VictoryAxis
             dependentAxis
-            tickValues={[88]}
+            tickValues={[25_000]}
             style={{
               tickLabels: {
                 display: "none",
@@ -125,54 +166,6 @@ const LineChart = () => {
                 strokeWidth: 1,
               },
             }}
-          />
-          <VictoryScatter
-            labels={() => ["(SMV)"]}
-            data={[{ x: 0, y: 0 }]}
-            labelComponent={
-              <VictoryLabel
-                dy={-150}
-                dx={20}
-                style={{
-                  fontSize: 10,
-                  padding: 5,
-                  fill: "gray",
-                }}
-                textAnchor="start"
-              />
-            }
-          />{" "}
-          <VictoryScatter
-            labels={() => ["Start"]}
-            data={[{ x: 0, y: 0 }]}
-            labelComponent={
-              <VictoryLabel
-                dy={15}
-                dx={40}
-                style={{
-                  fontSize: 10,
-                  padding: 5,
-                  fill: "gray",
-                }}
-                textAnchor="start"
-              />
-            }
-          />{" "}
-          <VictoryScatter
-            labels={() => ["Finish"]}
-            data={[{ x: 0, y: 0 }]}
-            labelComponent={
-              <VictoryLabel
-                dy={15}
-                dx={933}
-                style={{
-                  fontSize: 10,
-                  padding: 5,
-                  fill: "gray",
-                }}
-                textAnchor="start"
-              />
-            }
           />
         </VictoryChart>
       </div>
