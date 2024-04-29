@@ -1,20 +1,15 @@
 import React from "react";
 import { Icons } from "./Icons";
+import { BottomChartData } from "../@type/data.types";
 
-type Props = {
-  data: {
-    output: number;
-    efficiency: number;
-    loss: number;
-    productive: number;
-  };
-};
+type Props = { data: BottomChartData };
 
 const Summary = ({ data }: Props) => {
   const CircleMinus = Icons["circleMinus"];
   const Sparkle = Icons["sparkle"];
   const Shirt = Icons["shirt"];
   const Activity = Icons["activity"];
+  console.log(data);
   return (
     <div className="border border-[#DEDFDF] rounded-md p-5 text-xs text-[#3E3F41] w-[220px]">
       <ul className="flex flex-col gap-3 items-start justify-center h-full ">
@@ -24,7 +19,9 @@ const Summary = ({ data }: Props) => {
             <span>Output</span>
           </div>
           <div>
-            <span className="text-[#3E3F41] font-bold">{data.output}</span>
+            <span className="text-[#3E3F41] font-bold">
+              {data.processAnalysis.output}
+            </span>
             pcs
           </div>
         </li>
@@ -36,7 +33,9 @@ const Summary = ({ data }: Props) => {
           </div>
 
           <div>
-            <span className="text-[#3E3F41] font-bold"> {data.efficiency}</span>
+            <span className="text-[#3E3F41] font-bold">
+              {data.processAnalysis.efficiency}
+            </span>
             pcs
           </div>
         </li>
@@ -48,7 +47,10 @@ const Summary = ({ data }: Props) => {
           </div>
 
           <div>
-            <span className="text-[#3E3F41] font-bold"> {data.loss}</span>%
+            <span className="text-[#3E3F41] font-bold">
+              {data.processAnalysis.loss}
+            </span>
+            %
           </div>
         </li>
         <li className="flex justify-between items-center  w-full">
@@ -58,7 +60,10 @@ const Summary = ({ data }: Props) => {
           </div>
 
           <div>
-            <span className="text-[#3E3F41] font-bold">{data.productive}</span>%
+            <span className="text-[#3E3F41] font-bold">
+              {data.processAnalysis.productive}
+            </span>
+            %
           </div>
         </li>
       </ul>

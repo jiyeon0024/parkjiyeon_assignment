@@ -90,25 +90,18 @@ const TopChart = (props: Props) => {
             }}
             cornerRadius={{ top: 2 }}
           />
-          <VictoryLine
-            data={[
-              { x: 1, y: 19 },
-              { x: 2, y: 19 },
-              { x: 3, y: 19 },
-              { x: 4, y: 19 },
-              { x: 5, y: 19 },
-              { x: 6, y: 19 },
-              { x: 7, y: 19 },
-              { x: 8, y: 19 },
-              { x: 9, y: 19 },
-              { x: 10, y: 19 },
-              { x: 11, y: 19 },
-              { x: 12, y: 19 },
-              { x: 13, y: 19 },
-              { x: 14, y: 19 },
-            ]}
-            style={{ data: { stroke: "#F65959", strokeWidth: 0.5 } }}
-            standalone={false}
+          <VictoryAxis
+            dependentAxis
+            tickValues={[20]}
+            style={{
+              tickLabels: {
+                display: "none",
+              },
+              grid: {
+                stroke: "red",
+                strokeWidth: 1,
+              },
+            }}
           />
           <VictoryBar
             standalone={false}
@@ -117,7 +110,7 @@ const TopChart = (props: Props) => {
             y="output"
             style={{
               data: {
-                fill: ({ index }) => (index === 7 ? "#FF9B3F" : "#BDBFC2"),
+                fill: ({ index }) => (index === 7 ? "#FF9B3F" : "#dadbdd"),
                 width: 4,
               },
             }}

@@ -5,14 +5,14 @@ type Props = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const ButtonLightGray = ({ children }: Props) => {
+const IndexLightGray = ({ children }: Props) => {
   return (
-    <button
+    <div
       className={`bg-[#E6E7E9] border text-xs font-semibold border-[#E6E7E9] px-3 py-1  rounded-lg `}
     >
       {children}
-    </button>
+    </div>
   );
 };
 
-export default ButtonLightGray;
+export default IndexLightGray;

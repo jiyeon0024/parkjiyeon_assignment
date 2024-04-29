@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import { VictoryPie, VictoryLabel, VictoryScatter } from "victory";
 
 // type Props = { data: { sewingTime: number; otherTime: number } };
 type Props = { data: any };
 
-const PieChart = (data: Props) => {
+const PieChart = ({ data }: Props) => {
   //   console.log(data);
-  const [newData, setNewData] = useState([]);
+
   //   let pieData = data.data.best;
 
   //   if (pieData?.hasOwnProperty("sewingTime")) {
@@ -61,7 +60,7 @@ const PieChart = (data: Props) => {
         <div className="flex justify-between items-center gap-10 font-bold  pb-1 ">
           <p className="text-[#5550FF]">Best</p>
           <p className="text-[#5550FF]">
-            {(data.data.best?.sewingTime + data.data.best?.otherTime) / 1000}sec
+            {(data?.best?.sewingTime + data?.best?.otherTime) / 1000}sec
           </p>
         </div>
         <div className="flex justify-between items-center gap-10 text-[#565656]">
@@ -70,14 +69,14 @@ const PieChart = (data: Props) => {
             <p>Sewing</p>
           </div>
 
-          <p className="text-xs ">{data.data.best?.sewingTime / 1000}sec</p>
+          <p className="text-xs ">{data?.best?.sewingTime / 1000}sec</p>
         </div>
         <div className="flex justify-between items-center gap-10 text-[#565656]">
           <div className="flex justify-center items-center gap-1">
             <div className="w-2 h-2 bg-[#DEDFDF] rounded-sm"></div>
             <p>Other</p>
           </div>
-          <p className="text-xs ">{data.data.best?.otherTime / 1000}sec</p>
+          <p className="text-xs ">{data?.best?.otherTime / 1000}sec</p>
         </div>
       </div>
     </div>

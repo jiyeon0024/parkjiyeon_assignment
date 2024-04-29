@@ -1,6 +1,6 @@
 import SideBar from "./components/SideBar";
 import Button from "./components/Button";
-import ButtonLightGray from "./components/ButtonLightGray";
+import IndexLightGray from "./components/IndexLightGray";
 import TopCard from "./components/TopCard";
 import ProfileCard from "./components/ProfileCard";
 import { Icons } from "./components/Icons";
@@ -31,7 +31,7 @@ function App() {
               </div>
             </Button>
             <span className="text-[#E6E7E9]">|</span>
-            <ButtonLightGray>WL02Y018-RE2-001</ButtonLightGray>
+            <IndexLightGray>WL02Y018-RE2-001</IndexLightGray>
           </div>
 
           <div className="pt-3 flex justify-between  w-full ">
@@ -41,7 +41,7 @@ function App() {
             <TopCard title="Prediction" num={85} type="%" />
           </div>
           <TopChart />
-          <div className="bg-white mt-3 rounded-md p-3  border border-[#DEDFDF]">
+          <div className="bg-white mt-3 rounded-md p-3  border border-[#DEDFDF] w-full">
             <BottomChart />
           </div>
         </div>
