@@ -4,7 +4,6 @@ import { BottomChartData } from "../@type/data.types";
 type Props = { data: BottomChartData };
 
 const PieChartRight = ({ data }: Props) => {
-  console.log(data, "sfsd");
   return (
     <div className="relative border border-[#DEDFDF] rounded-md p-3 text-xs flex  justify-center items-center gap-6 w-[300px]">
       <div className="absolute top-18 left-[53px] font-bold ">
