@@ -1,20 +1,8 @@
-import { Variable } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import * as V from "victory";
-import {
-  VictoryBar,
-  VictoryChart,
-  VictoryAxis,
-  VictoryLabel,
-  VictoryScatter,
-  VictoryStack,
-  VictoryGroup,
-  VictoryLine,
-} from "victory";
+import { useEffect, useState } from "react";
 
-type Props = {};
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from "victory";
 
-const TopChart = (props: Props) => {
+const TopChart = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("./topChartData.json")
@@ -22,7 +10,6 @@ const TopChart = (props: Props) => {
       .then((val) => setData(val.processList));
   }, []);
 
-  //   console.log(data);
   return (
     <div className="bg-white  mt-3 p-3 rounded-md border border-[#DEDFDF] w-full  ">
       <div className="flex justify-end items-center gap-10">
@@ -62,9 +49,8 @@ const TopChart = (props: Props) => {
               },
             }}
           />
-          {/* <VictoryGroup> */}
+
           <VictoryBar
-            // standalone={false}
             data={data}
             x="processName"
             y="expectOutput"
@@ -94,7 +80,6 @@ const TopChart = (props: Props) => {
             }}
           />
           <VictoryBar
-            // standalone={false}
             data={data}
             x="processName"
             y="output"
@@ -106,7 +91,6 @@ const TopChart = (props: Props) => {
             }}
             cornerRadius={{ top: 2 }}
           />
-          {/* </VictoryGroup> */}
         </VictoryChart>
       </div>
     </div>

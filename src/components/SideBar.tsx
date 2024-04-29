@@ -1,9 +1,6 @@
-import React from "react";
 import { Icons } from "./Icons";
 
-type Props = {};
-
-const SideBar = (props: Props) => {
+const SideBar = () => {
   const ArrowLeftToLine = Icons["arrowLeftToLine"];
   const Bell = Icons["bell"];
   const Logout = Icons["logOut"];

@@ -1,4 +1,3 @@
-import React from "react";
 import { Icons } from "./Icons";
 import { BottomChartData } from "../@type/data.types";
 
@@ -9,7 +8,7 @@ const Summary = ({ data }: Props) => {
   const Sparkle = Icons["sparkle"];
   const Shirt = Icons["shirt"];
   const Activity = Icons["activity"];
-  console.log(data);
+
   return (
     <div className="border border-[#DEDFDF] rounded-md p-5 text-xs text-[#3E3F41] w-[220px]">
       <ul className="flex flex-col gap-3 items-start justify-center h-full ">

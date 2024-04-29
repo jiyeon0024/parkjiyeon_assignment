@@ -1,7 +1,6 @@
-import { VictoryPie, VictoryLabel, VictoryScatter } from "victory";
+import { VictoryPie, VictoryLabel } from "victory";
 import { BottomChartData } from "../@type/data.types";
 
-// type Props = { data: { sewingTime: number; otherTime: number } };
 type Props = { data: BottomChartData };
 
 const PieChartRight = ({ data }: Props) => {

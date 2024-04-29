@@ -1,7 +1,6 @@
-import { VictoryPie, VictoryLabel, VictoryScatter } from "victory";
+import { VictoryPie, VictoryLabel } from "victory";
 import { BottomChartData } from "../@type/data.types";
 
-// type Props = { data: { sewingTime: number; otherTime: number } };
 type Props = { data: BottomChartData };
 
 const PieChart = ({ data }: Props) => {
@@ -24,7 +23,6 @@ const PieChart = ({ data }: Props) => {
           colorScale={["#5550FF", "#DEDFDF"]}
           cornerRadius={10}
           width={400}
-          //   height={150}
           padAngle={() => 2}
           innerRadius={80}
           labelRadius={120}

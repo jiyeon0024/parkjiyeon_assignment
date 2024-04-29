@@ -1,8 +1,6 @@
-import React from "react";
 import { Icons } from "./Icons";
-type Props = {};
 
-const ProfileCard = (props: Props) => {
+const ProfileCard = () => {
   const ChevronRight = Icons["chevronRight"];
   const ChevronLeft = Icons["chevronLeft"];
   return (

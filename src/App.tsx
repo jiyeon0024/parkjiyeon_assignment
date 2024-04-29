@@ -2,10 +2,8 @@ import SideBar from "./components/SideBar";
 import Button from "./components/Button";
 import IndexLightGray from "./components/IndexLightGray";
 import TopCard from "./components/TopCard";
-import ProfileCard from "./components/ProfileCard";
 import { Icons } from "./components/Icons";
 import TopChart from "./components/TopChart";
-import Summary from "./components/Summary";
 import BottomChart from "./components/BottomChart";
 
 function App() {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import colors from "tailwindcss/colors";
 
@@ -9,16 +9,9 @@ import {
   VictoryLabel,
   VictoryVoronoiContainer,
 } from "victory";
-// type Props = { data: BottomChartData };
-
-// export function formatTime(time: string) {
-//   return DateTime?.fromISO(time, { zone: "Asia/Seoul" })?.toFormat("t");
-// }
 
 export const CustomTooltip = (props: any) => {
   const { x, y, datum, width, padding } = props;
-
-  console.log(datum);
 
   const tooltipWidth = 200;
   const tooltipHeight = 75;
@@ -54,7 +47,6 @@ export const CustomTooltip = (props: any) => {
       </defs>
 
       <g filter="url(#drop-shadow)">
-        {/* Background box */}
         <rect
           x={tooltipX}
           y={tooltipY}
@@ -206,16 +198,11 @@ const LineChart = () => {
           <VictoryLine
             style={{
               data: { stroke: "#5550FF", strokeWidth: 1 },
-              //   parent: { border: "1px solid #ccc" },
             }}
-            // x="createdAt"
-
-            // x={(d) => formatTime(d.createdAt)}
             y={(d) => d.sewingTime + d.otherTime}
             data={val}
           />
           <VictoryAxis
-            //   dependentAxis
             style={{
               tickLabels: {
                 fontSize: 10,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProfileCard from "./ProfileCard";
 import Summary from "./Summary";
 import PieChart from "./PieChart";

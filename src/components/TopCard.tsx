@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = { title: string; num: number; type: string };
 
 const TopCard = ({ title, num, type }: Props) => {
