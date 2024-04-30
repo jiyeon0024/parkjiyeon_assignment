@@ -1,9 +1,25 @@
 import { useEffect, useState } from "react";
+import { ChartData } from "../@type/data.types";
 
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from "victory";
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryAxis,
+  VictoryLabel,
+  VictoryLine,
+} from "victory";
 
+// type Props = { data: BottomChartData };
 const TopChart = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ChartData[]>([]);
+  const tickValues = data?.map((item) => {
+    item?.processName;
+  });
+  const customLabels = data?.map((item, index) => {
+    return `#${index}`;
+  });
+
+  //   console.log(data);
   useEffect(() => {
     fetch("./topChartData.json")
       .then((res) => res.json())
@@ -30,8 +46,15 @@ const TopChart = () => {
             text={"(pcs)"}
           />
           <VictoryAxis
+            tickValues={tickValues}
+            tickFormat={customLabels}
             style={{
-              tickLabels: { fontSize: 8, padding: 5, fill: "#8C8F94" },
+              tickLabels: {
+                fontSize: 8,
+                padding: 5,
+                fill: (data: any) => (data.tick === 8 ? "#3E3F41" : "#DEDFDF"),
+              },
+              axis: { stroke: "#CBCBCB" },
             }}
           />
           <VictoryAxis
@@ -47,6 +70,7 @@ const TopChart = () => {
                 fontSize: 8,
                 fill: "#8C8F94",
               },
+              axis: { stroke: "#CBCBCB" },
             }}
           />
 
@@ -66,18 +90,15 @@ const TopChart = () => {
             }}
             cornerRadius={{ top: 2 }}
           />
-          <VictoryAxis
-            dependentAxis
-            tickValues={[20]}
+          <VictoryLine
+            standalone={false}
             style={{
-              tickLabels: {
-                display: "none",
-              },
-              grid: {
-                stroke: "red",
+              data: {
+                stroke: "#F65959",
                 strokeWidth: 1,
               },
             }}
+            y={() => 20}
           />
           <VictoryBar
             data={data}

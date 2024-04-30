@@ -22,3 +22,9 @@ export type BottomChartData = {
     createdAt: string;
   };
 };
+
+export type ChartData = {
+  processName: string;
+  output: number;
+  expectOutput: number;
+};

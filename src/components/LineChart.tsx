@@ -40,8 +40,8 @@ export const CustomTooltip = (props: any) => {
             dx="2"
             dy="2"
             stdDeviation="2"
-            flood-color="rgba(0, 0, 0, 0.1)"
-            flood-opacity="0.5"
+            floodColor="rgba(0, 0, 0, 0.1)"
+            floodOpacity="0.5"
           />
         </filter>
       </defs>
@@ -162,9 +162,6 @@ const LineChart = () => {
   if (val) {
     return (
       <div className=" relative  rounded-md p-3 text-xs flex   justify-center items-center gap-3 h-[400px]  ">
-        <div className="  absolute top-[49%] text-[10px]  left-[50px] bg-[#F6595926]/15 text-[#F65959] p-1 rounded-lg">
-          18s
-        </div>
         <div className="absolute right-[85px] top-10">
           <ul className="flex justify-center items-center gap-3">
             <div className="flex items-center gap-1 text-xs">
@@ -190,99 +187,108 @@ const LineChart = () => {
             </linearGradient>
           </defs>
         </svg>
-
-        <VictoryChart
-          domainPadding={10}
-          height={250}
-          width={1000}
-          style={{
-            background: { fill: "url(#radial_gradient)" },
-          }}
-          containerComponent={
-            <VictoryVoronoiContainer
-              labels={({ datum }) => `${datum.sewingTime}, ${datum.otherTime}`}
-              labelComponent={
-                <CustomTooltip height={250} width={1000} padding={20} />
-              }
+        <div className="relative w-full">
+          <div className="  absolute top-[49%] text-[10px]  left-[40px] bg-[#F6595926]/15 text-[#F65959] p-1 rounded-lg">
+            18s
+          </div>
+          <VictoryChart
+            domainPadding={10}
+            height={250}
+            width={1000}
+            style={{
+              background: { fill: "url(#radial_gradient)" },
+            }}
+            containerComponent={
+              <VictoryVoronoiContainer
+                labels={({ datum }) =>
+                  `${datum.sewingTime}, ${datum.otherTime}`
+                }
+                labelComponent={
+                  <CustomTooltip height={250} width={1000} padding={20} />
+                }
+              />
+            }
+          >
+            <VictoryLine
+              style={{
+                data: { stroke: "#5550FF", strokeWidth: 1 },
+              }}
+              y={(d) => d.sewingTime + d.otherTime}
+              data={val}
             />
-          }
-        >
-          <VictoryLine
-            style={{
-              data: { stroke: "#5550FF", strokeWidth: 1 },
-            }}
-            y={(d) => d.sewingTime + d.otherTime}
-            data={val}
-          />
-          <VictoryAxis
-            style={{
-              tickLabels: {
-                fontSize: 10,
-                padding: 20,
-                fill: "gray",
-              },
-              axisLabel: {
-                angle: -360,
-                fontSize: 10,
-                fill: "gray",
-              },
-            }}
-            tickValues={[
-              "7:10",
-              ,
-              "7:12",
+            <VictoryAxis
+              style={{
+                tickLabels: {
+                  fontSize: 10,
+                  padding: 20,
+                  fill: "gray",
+                },
+                axisLabel: {
+                  angle: -360,
+                  fontSize: 10,
+                  fill: "gray",
+                },
 
-              "7:14",
+                axis: { stroke: "#8C8F94" },
+              }}
+              tickValues={[
+                "7:10",
+                ,
+                "7:12",
 
-              "7:16",
+                "7:14",
 
-              "7:18",
+                "7:16",
 
-              "7:20",
+                "7:18",
 
-              "7:22",
+                "7:20",
 
-              "7:24",
+                "7:22",
 
-              "7:26",
+                "7:24",
 
-              "7:28",
+                "7:26",
 
-              "7:30",
-            ]}
-          />
-          <VictoryLabel
-            x={20}
-            y={50}
-            style={{ fontSize: "10px", fill: "gray" }}
-            text={"(SMV)"}
-          />
-          <VictoryLabel
-            x={50}
-            y={210}
-            style={{ fontSize: "10px", fill: "gray" }}
-            text={"Start"}
-          />
-          <VictoryLabel
-            x={925}
-            y={210}
-            style={{ fontSize: "10px", fill: "gray" }}
-            text={"Finish"}
-          />
-          <VictoryAxis
-            dependentAxis
-            tickValues={[25_000]}
-            style={{
-              tickLabels: {
-                display: "none",
-              },
-              grid: {
-                stroke: "red",
-                strokeWidth: 1,
-              },
-            }}
-          />
-        </VictoryChart>
+                "7:28",
+
+                "7:30",
+              ]}
+            />
+            <VictoryLabel
+              x={20}
+              y={50}
+              style={{ fontSize: "10px", fill: "gray" }}
+              text={"(SMV)"}
+            />
+            <VictoryLabel
+              x={50}
+              y={210}
+              style={{ fontSize: "10px", fill: "gray" }}
+              text={"Start"}
+            />
+            <VictoryLabel
+              x={925}
+              y={210}
+              style={{ fontSize: "10px", fill: "gray" }}
+              text={"Finish"}
+            />
+            <VictoryAxis
+              dependentAxis
+              tickValues={[25_000]}
+              style={{
+                tickLabels: {
+                  display: "none",
+                },
+                grid: {
+                  stroke: "#F65959",
+                  strokeWidth: 1,
+                },
+                axis: { stroke: "#8C8F94" },
+              }}
+            />
+          </VictoryChart>
+        </div>
       </div>
     );
   }
