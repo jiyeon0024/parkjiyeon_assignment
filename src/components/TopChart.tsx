@@ -15,7 +15,8 @@ const TopChart = () => {
   const tickValues = data?.map((item) => {
     item?.processName;
   });
-  const customLabels = data?.map((item, index) => {
+  const customLabels = data?.map((item: any, index) => {
+    console.log(item);
     return `#${index}`;
   });
 
