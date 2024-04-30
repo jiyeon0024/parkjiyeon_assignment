@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+# React 활용 프론트엔드 프로젝트
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 배포 링크
+https://assignment-jiyeon.netlify.app
 
-Currently, two official plugins are available:
+## Build with
+React Vite TypeScript Victory Tailwind
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+1. Install dependencies: npm install
+2. Start the development server: npm run dev
 
-## Expanding the ESLint configuration
+ ### 추가 설명사항
+  하단 라인차트 모달의 Now 데이터와 x축 범위 데이터는 아래 작업 요청사항으로 인하여 다름을 미리 말씀드립니다. 
+  
+  * 요청사항: x축 : createdAt 시간 -> 고정 간격 1초로 작성됨 / x축 범위 : 07시 10분 ~ 07시 30분으로 하드 코딩
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   
